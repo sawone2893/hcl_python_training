@@ -1,0 +1,58 @@
+These focus on logic, loop conditions, and tricky behaviors.
+1️⃣ What will be the output of this code?
+x = 5
+while x > 0:
+    x -= 1
+    if x == 2:
+        x -= 1
+    print(x)
+Options:
+A. 4 3 2 1 0
+B. 4 3 1 0=Answer
+C. 4 3 1 0 -1
+D. 4 2 1 0
+2️⃣ How many times will the loop execute?
+count = 0
+num = 15
+while num > 1:
+    num //= 2
+    count += 1
+Options:
+A. 2
+B. 3=Answer
+C. 4
+D. 5
+3️⃣ What is printed?
+i = 0
+while i < 5:
+    print(i)
+    if i % 2 == 0:
+        i += 2
+    else:
+        i += 1
+Options:
+A. 0 2 4=Answer
+B. 0 2 3 4
+C. 0 1 2 3 4
+D. Infinite loop
+4️⃣ What is the final value of x after the loop?
+x = 1
+while x < 10:
+    x = x * x
+Options:
+A. 1
+B. 9
+C. 81
+D. Infinite loop=answer
+5️⃣ What is the output?
+n = 10
+while n:
+    n -= 3
+    if n < 0:
+        n += 2
+    print(n)
+Options:
+A. 7 4 1 -2
+B. 7 4 1 -1
+C. 7 4 1 0=Answer
+D. 7 4 1 -3

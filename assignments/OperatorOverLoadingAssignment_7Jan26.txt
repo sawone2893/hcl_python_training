@@ -1,0 +1,59 @@
+1. Write a class to overload == to compare two student objects by roll number.
+Solution======================================================================
+class Student:
+    def __init__(self,rollNum):
+        self.rollNum=rollNum
+    def __eq__(self,other):
+        return self.rollNum==other.rollNum
+
+s1=Student(1254)
+s2=Student(1254)
+print(s1==s2)
+==============================================================================
+2. Write a class to overload * to multiply a vector by a scalar.
+Solution======================================================================
+class Vector:
+  def __init__(self, v):
+       self.v = tuple(v)
+
+  def __mul__(self, other):
+    return Vector(x * other for x in self.v)
+
+  def __str__(self):
+        return f"{self.v}"
+
+v=Vector((1,2))
+print(v*9)
+==============================================================================
+3. Write a class to overload < to compare two books by price.
+Solution======================================================================
+class Books:
+  def __init__(self,price):
+    self.price=price
+  
+  def __lt__(self,other):
+    return self.price<other.price
+
+b1=Books(400)
+b2=Books(200)
+print(b1<b2)
+==============================================================================
+4. Write a class to overload + to add two time objects (hours and minutes).
+Solution======================================================================
+class Time:
+  def __init__(self,h,m):
+    self.h=h;
+    self.m=m;
+  
+  def __add__(self,other):
+    total_time1=self.h*60+self.m
+    total_time2=other.h*60+other.m
+    total_time=total_time1+total_time2
+    hours=total_time//60
+    min=total_time%60
+    return (hours,min)
+
+t1=Time(2,45)
+t2=Time(3,25)
+print(t1+t2)
+==============================================================================

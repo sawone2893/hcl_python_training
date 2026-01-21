@@ -1,0 +1,106 @@
+Rule: Solve each using a single list comprehension (you may use standard built-ins like sum, len, range, min, max, sorted, abs, any, all if needed).
+1) Squares of Positive Integers
+Input: nums = [-3, -1, 0, 1, 2, 3, 4]
+Task: Create a list of squares of numbers that are strictly positive.
+Expected pattern: [1, 4, 9, 16]
+
+Solution:==============================================
+nums = [-3, -1, 0, 1, 2, 3, 4]
+square_list=[x**2 for x in nums if x>0]
+print(square_list);
+==============================================
+2) Filter Even Numbers and Double
+Input: nums = list(range(1, 21))
+Task: Keep even numbers and multiply them by 2.
+Expected pattern: [4, 8, 12, ..., 40]
+
+Solution:==============================================
+nums = list(range(1, 21))
+double_Even_Num_List=[x*2 for x in nums if x%2==0]
+print(double_Even_Num_List);
+==============================================
+
+3) Clean Strings: Remove Non-Alphanumerics & Lowercase
+Input: words = ["Hello!", "Data-Science", "NLP_123", "###AI###", "clean.me"]
+Task: For each word, remove non-alphanumeric characters, lowercase it, and keep only those with length ≥ 4.
+Expected pattern: ["hello", "datascience", "nlp123", "cleanme"]
+
+Solution:==============================================
+words = ["Hello!", "Data-Science", "NLP_123", "###AI###", "clean.me"]
+new_list=[''.join((l for l in word if l.isalpha())).lower() for word in words]
+print(new_list)
+==============================================
+4) Extract Digits from Mixed Strings
+Input: texts = ["item42", "no_digits", "x7y8z9", "2025", ""]
+Task: Produce a list where each element is a string of only the digits from the corresponding input string (possibly empty).
+Expected pattern: ["42", "", "789", "2025", ""]
+
+Solution:==============================================
+texts = ["item42", "no_digits", "x7y8z9", "2025", ""]
+new_list=[''.join((l for l in text if l.isdigit())) for text in texts]
+print(new_list)
+==============================================
+5) Numbers Not Divisible by 2 or 3
+Input: nums = list(range(1, 50))
+Task: Build a list of numbers that are not divisible by 2 and not divisible by 3.
+Expected pattern: [1, 5, 7, 11, 13, ...]
+
+Solution:==============================================
+nums = list(range(1, 50))
+new_list=[x for x in nums if x%2!=0 and x%3!=0]
+print(new_list)
+==============================================
+6) Normalize Emails (Local Lowercase Only)
+Input: emails = ["VIKAS@company.com", "team@ORG.io", "Dev@Mail.net"]
+Task: Return a list where only the part before @ is lowercased, leaving the domain unchanged.
+Example: "VIKAS@company.com" → "vikas@company.com"
+(Hint: Use string methods: find the index of @ and reconstruct.)
+
+Solution:==============================================
+emails = ["VIKAS@company.com", "team@ORG.io", "Dev@Mail.net"]
+new_List=[(email[:email.index("@")].lower()+"@"+email[email.index("@"):].lower()) for email in emails]
+//new_List=[(email.split("@")[0].lower()+"@"+email.split("@")[1].lower()) for email in emails]
+print(new_List)
+==============================================
+7) Word Lengths: Keep Words with Prime Length
+Input: words = ["go", "code", "python", "ai", "dev", "cloud"]
+Task: Keep words whose length is prime (e.g., 2, 3, 5, 7, …).
+Expected pattern: Depends on input (e.g., "go"(2), "code"(4), "dev"(3) → keep "go", "dev")
+(Hint: Inline primality test with all(len(w) % k for k in range(2, len(w))) and len ≥ 2.)
+
+Solution:==============================================
+words = ["go", "code", "python", "ai", "dev", "cloud"]
+new_list=[w for w in words if len(w)>=2 and all(len(w)%k!=0 for k in range(2, len(w))) ]
+print(new_list);
+==============================================
+8) Running Differences (Adjacent)
+Input: nums = [10, 13, 18, 17, 25]
+Task: Create a list of differences between adjacent numbers: nums[i+1] - nums[i].
+Expected: [3, 5, -1, 8]
+
+Solution:==============================================
+nums = [10, 13, 18, 17, 25]
+new_list=[(nums[i+1] - nums[i]) for i in range(0,len(nums)-1)]
+print(new_list)
+==============================================
+9) Title-Case Filter: Keep Only Properly Title-Cased
+Input: names = ["vikas", "Vikas", "solutions architect", "Solutions Architect", "AI Force"]
+Task: Keep strings that are title-cased (each word capitalized, rest lowercase).
+Expected: ["Vikas", "Solutions Architect", "Ai Force"] (Note: Python’s title() behavior capitalizes every word’s first letter.)
+(Hint: Compare s == s.title() or use s.istitle().)
+
+Solution:==============================================
+names = ["vikas", "Vikas", "solutions architect", "Solutions Architect", "AI Force"]
+new_list=[x for x in names if x.istitle()]
+print(new_list)
+==============================================
+10) Sum of Digits for Each Number (as String)
+Input: nums = [123, 405, 89, 1000, 0]
+Task: Produce a list of sum of digits for each number.
+Expected: [6, 9, 17, 1, 0]
+
+Solution:==============================================
+nums = [123, 405, 89, 1000, 0]
+new_list=[sum( int(d) for d in str(x)) for x in nums]
+print(new_list)
+=======================================================

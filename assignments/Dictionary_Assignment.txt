@@ -1,0 +1,12 @@
+#keys should be among below with only those strings which start from any character before P.
+l = ['Vikash', 'Anil', 'Sunil', 'Pankaj', 'Rohit', 'Shankar']
+#values should be the numbers starting from 1000
+#Create a dictionary
+my_dict={}
+keyStart=1000
+for name in l:
+	if name[0]<'P':
+		my_dict[keyStart]=name
+		keyStart++
+		
+

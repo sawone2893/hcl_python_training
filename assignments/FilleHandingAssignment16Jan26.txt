@@ -1,0 +1,128 @@
+1. The "Log File Pruner" (Text Processing)
+Requirement: Write a program that reads a large server log file (you can create a dummy .txt file).
+The program must scan each line and identify specific keywords (e.g., "ERROR" or "CRITICAL").
+It should write only those error lines into a new file called error_report.txt.
+Complexity Add: Add a timestamp to each line in the new file showing exactly when the "pruning" happened.
+Solution----------------------------------------------------------------------------------------------------------------------------------------------------
+import time
+class LogFilePruner:
+  def __init__(self,logfileLocation):
+    self.logfileLocation=logfileLocation
+  
+  def getErrorLog(self, keyword,outputFileLocation):
+    log=""
+    f2=open(outputFileLocation,"w")
+    f=open(self.logfileLocation,"r")
+    content=f.readlines();
+    for line in content:
+      if keyword in line:
+        log=line+str(time.time())
+        f2.write(log)
+    f.close()
+    f2.close()
+
+
+logFile=LogFilePruner("./concept_file_handling/log/serverLog.txt")
+logFile.getErrorLog("ERROR","./concept_file_handling/log/error_report.txt")      
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. The "Configuration Merger" (JSON/Dictionary Handling)
+Requirement: Imagine you have two JSON files representing settings for your AI solution: default_config.json and user_config.json.
+Read both files.
+Merge them so that if a setting exists in both, the user_config value takes priority.
+Save the final merged result into final_config.json.
+Complexity Add: If the user_config contains a key that is not in the default_config, the program should log a warning to a warnings.log file instead of just merging it.
+Solution----------------------------------------------------------------------------------------------------------------------------------------------------
+import json
+import logging
+class ConfigurationMerger:
+  def __init__(self,defaultConfigFile,userConfileFile):
+    self.defaultConfigFile=defaultConfigFile
+    self.userConfileFile=userConfileFile
+  
+  def readFromJsonFile(self,jsonFile):
+    try:
+        with open(jsonFile, "r") as dfile:
+        # Use json.load() to convert the file content to a Python dictionary
+          data = json.load(dfile)
+          return data
+    except FileNotFoundError:
+      print(f"Error: The file {jsonFile} was not found. Please check the file path.")
+    except json.JSONDecodeError as e:
+      print(f"Error: Failed to decode JSON from the file: {e}")
+  
+  def writeIntoJsonFile(self,jsonFile,data):
+    try:
+        with open(jsonFile, 'w', encoding='utf-8') as jfile:
+          json.dump(data, jfile, indent=4, ensure_ascii=False)
+    except FileNotFoundError:
+      print(f"Error: The file {jsonFile} was not found. Please check the file path.")
+    except json.JSONDecodeError as e:
+      print(f"Error: Failed to decode JSON from the file: {e}")
+  
+  def logger(self,msg):
+    logging.basicConfig(
+    filename='app.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filemode='w' # 'a' for append (default), 'w' for overwrite
+    )
+    logging.warning(msg)
+     
+  def mergeFiles(self,outputConfigFile):
+    newData={}
+    defaultData = self.readFromJsonFile(self.defaultConfigFile);
+    userData = self.readFromJsonFile(self.userConfileFile);
+    for key in userData.keys():
+      if key in defaultData.keys():
+          newData[key]=userData[key]
+      else:
+        self.logger(f"Key{key} does not present in the {self.defaultConfigFile}")
+    self.writeIntoJsonFile(outputConfigFile,newData)
+    
+
+config=ConfigurationMerger("./concept_file_handling/log/default.json","./concept_file_handling/log/user.json")
+config.mergeFiles("./concept_file_handling/log/final_config.json")  
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. The "Secure Data Vault" (Binary & XOR Encryption)
+Requirement: Create a program that takes a sensitive text file (like api_keys.txt) and "encrypts" it into a binary file.
+Read the text file as bytes.
+Apply a simple XOR operation using a secret key (a single byte/number) to every byte in the file.
+Save this "garbled" data into vault.bin.
+Write a second function in the same program that reads vault.bin, applies the same key again, and recovers the original text.
+Solution----------------------------------------------------------------------------------------------------------------------------------------------------
+class SecureDataVault:
+  def __init__(self,fileLocation):
+    self.fileLocation=fileLocation
+
+  def encodeData(self,key,outputFile):
+    with open(self.fileLocation, 'rb') as f:
+      byte_data = f.read()
+      encodeData = bytearray(b ^ key for b in byte_data)
+      with open(outputFile,'wb') as bFile:
+        bFile.write(encodeData)
+  
+  def decodeData(self,key,encodedFile):
+    with open(encodedFile,"rb") as bFile:
+      encodeData=bFile.read()
+      decodeData = bytearray(b ^ key for b in encodeData)
+      print(decodeData)
+
+
+secure=SecureDataVault("./concept_file_handling/log/api_keys.txt")
+secure.encodeData(121,"./concept_file_handling/log/vault.bin")
+secure.decodeData(121,"./concept_file_handling/log/vault.bin")
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. The "CSV Data Sanitizer" (Structured Data)
+Requirement: Read a CSV file containing user data (Name, Email, Phone Number, Age).
+Validation: Check if the email contains an @ symbol and if the age is a number over 18.
+Transformation: Convert all names to Uppercase.
+Save only the "valid" users into cleaned_data.csv and move "invalid" rows into a quarantine.csv file for manual review.
+Solution----------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+5. The "Project Resource Indexer" (OS & File Metadata)
+Requirement: Write a script that scans a specific folder on your computer.
+For every file found, collect the file name, file size (in KB), and the last modified date.
+Save this "index" into a binary file using pickle.
+Complexity Add: When the program runs again, it should read the binary index and compare it to the current folder state, printing out a list of any files that have been added or deleted since the last scan.
+Solution----------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------

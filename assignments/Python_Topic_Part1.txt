@@ -1,0 +1,250 @@
+*Getting Help in python (Using server and command )
+ 
+              python -m pydoc <module_name>
+ 
+              python -m pydoc <module_name>.<function_name>
+ 
+ 
+*Python documentation
+ 
+              python -m pydoc -p 8000
+ 
+ 
+Open the python program in IDLE
+ 
+ 
+Comments in Python
+ 
+              Single Line - #
+ 
+              Multiline - '''Comment''' - Multiline
+ 
+ 
+Docstrings (__doc__)
+ 
+              To explain the code/documentation generation against some function.
+ 
+             
+ 
+              def func():
+ 
+    """"This is a sample file"""
+ 
+    print('Hello Python')
+ 
+              print(func.__doc__)
+ 
+ 
+How Python Sees Variables
+ 
+              In python, the variable is not a named memory location.
+ 
+              variable is just a reference to a memory area. Every value is a new memory area.
+ 
+              a = 20
+ 
+              a = 23 #location changes
+ 
+              variable don't have types, but the objects in memory they refer has types.
+ 
+ 
+Datatypes in Python
+ 
+              Dynamically typed language, No need to explicitly declare the variable
+ 
+              Still you could typecast using the keywords for datatypes.
+ 
+ 
+Built-in datatypes
+ 
+              int, float, complex, str, list, tuple, range, dict, set, frozenset, bool, NoneType, bytes, bytearray, memoryview
+ 
+bool Datatype
+ 
+              subclass of int only (True = 1, False = 0)
+ 
+Sequences in Python
+ 
+              Ordered collection of items.
+ 
+              str (Strings): Immutable sequence of characters, used for text.
+ 
+ 
+              list (Lists): Mutable ordered collection of items, enclosed in square brackets [].
+ 
+ 
+              tuple (Tuples): Immutable ordered collection of items, enclosed in parentheses ().
+ 
+ 
+              range (Range objects): Immutable sequence of numbers, typically used for looping a specific number of times.
+ 
+              For example range(5) - generates numbers from 0 to 4.
+ 
+             
+ 
+Sets
+ 
+              A set in Python is an unordered collection of unique and immutable items
+ 
+              define using the curly braces {}
+ 
+              s = {1,2,1,2,4,1,15} # what it will print?
+ 
+              All mathematical operations could be done which are done on set - Union/Intersection/difference/symmetric difference (A-B) UNION (B-A)
+ 
+ 
+Literals in Python
+ 
+              In Python, a literal is a notation for representing a fixed value in the source code. Essentially, they are the raw data values that you directly write into your program. String literals, boolean, integer, tuple, list, etc.
+ 
+ 
+Determining the Datatype of a Variable
+ 
+              using the type function.
+ 
+ 
+What about Characters
+ 
+              string of length 1.
+ 
+              ord and chr functions.
+ 
+              Unicode character - A character which takes more than 1 byte - usually 4 Bytes
+ 
+              print the ascii value.
+ 
+             
+ 
+User-defined Datatypes
+ 
+              Use classes to define your own data type. Will see how to define them
+ 
+             
+ 
+Constants in Python
+ 
+              ALL CAPITAL LETTERS in variable name. Like - PI_VAL = 3.14.
+ 
+              Please note, it's Only for readability. It's not like you can't change the value.
+ 
+             
+ 
+Identifiers and Reserved words
+ 
+              False, None, True, and, as, assert, async, await, break, class, continue, def, del, elif, else, except, finally, for, from, global, if, import, in, is, lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield
+ 
+======================================================================================================================== 
+Naming Conventions in Python (Basically the guidelines for declaring the variable/function/module/file names:
+ 
+              Python naming conventions are a set of guidelines, primarily outlined in PEP 8 (Python Enhancement Proposal 8), that aim to make Python code more readable, consistent, and maintainable. Following these conventions is crucial for collaborative projects and for writing "Pythonic" code.
+ 
+ 
+              Here's a breakdown of the key naming conventions:
+ 
+ 
+              *General Principles:
+ 
+ 
+              Readability: Names should be easy to read and understand.
+ 
+ 
+              Meaningful: Names should clearly indicate their purpose or content.
+ 
+ 
+              Consistency: Stick to a chosen convention throughout your codebase.
+ 
+ 
+              *Common Naming Styles and Their Usage:
+ 
+ 
+              *lowercase_with_underscores (snake_case):
+ 
+ 
+              Purpose: The most common style in Python. Words are separated by underscores.
+ 
+ 
+              Used For:
+ 
+ 
+              Functions: calculate_total_price(), get_user_data()
+ 
+ 
+              Variables: user_name, total_count, is_active
+ 
+ 
+              Modules (Python files): my_module.py, data_processor.py
+ 
+ 
+              Packages (directories containing modules): my_package/, utilities/
+ 
+ 
+              *CAPS_WITH_UNDERSCORES (SCREAMING_SNAKE_CASE):
+ 
+ 
+              Purpose: Indicates that a variable is a constant, usually defined at the module level. Its value should not change during the program's execution.
+ 
+ 
+              Used For:
+ 
+ 
+              Constants: MAX_CONNECTIONS, PI_VALUE, DEFAULT_TIMEOUT
+ 
+ 
+              *CamelCase (CapWords / PascalCase):
+ 
+ 
+              Purpose: Each word starts with a capital letter, with no underscores.
+ 
+ 
+              Used For:
+ 
+ 
+              Class Names: MyClass, UserManager, Car
+ 
+ 
+              *Exception Names: MyCustomError, FileNotFoundError
+ 
+ 
+              *_single_leading_underscore (Internal Use Indicator):
+ 
+ 
+              Purpose: A convention (not enforced by the interpreter) to indicate that a variable, function, or method is intended for "internal use" within a module or class. It's a hint to other developers not to access it directly from outside.
+ 
+ 
+              Used For: _internal_variable, _helper_function()
+ 
+ 
+              *__double_leading_underscore (Name Mangling):
+ 
+ 
+              Purpose: Triggers "name mangling" within a class to prevent name clashes in subclasses. The Python interpreter internally renames the attribute (e.g., __private_var becomes _ClassName__private_var).
+ 
+ 
+              Used For: Attributes intended to be "private" to a class (though still technically accessible). __secret_data
+ 
+ 
+              *__double_leading_and_trailing_underscores__ (Dunder / Magic Methods):
+ 
+ 
+              Purpose: These are special methods and attributes defined by Python itself. They have specific, predefined meanings for the interpreter. Never invent your own names in this style.
+ 
+ 
+              Used For: __init__, __str__, __add__, __len__
+ 
+ 
+              *Specific Recommendations:
+ 
+ 
+              Avoid single-character names: Except for simple loop counters (i, j, k), mathematical variables (x, y, z), or very short-lived temporary variables.
+ 
+ 
+              Avoid built-in names: Do not use names that clash with Python's built-in functions or types (e.g., list, str, id, sum) as this can lead to unexpected behavior.
+ 
+ 
+              Boolean names: Start with is_, has_, can_ (e.g., is_empty, has_permissions).
+ 
+ 
+              Abbreviations: Avoid excessive or ambiguous abbreviations. Clarity is preferred.
+ 
+ 
+              By consistently applying these naming conventions, you contribute to code that is easier to read, understand, and maintain for anyone working with it, including yourself in the future.

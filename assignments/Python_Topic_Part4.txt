@@ -1,0 +1,218 @@
+#List is a container containing different kind of data. Like:
+
+l = [1,2,3,'Vikash','Rajesh',10.787] - It's legitimate to store all this.
+
+It's ordered and modifiable (means address of list won't change after modification)
+ 
+Creating Lists using range() Function
+
+# Creating a list of numbers from 0 to 4
+
+list_from_range = list(range(5))
+
+print(f"List from range(5): {list_from_range}")
+ 
+# Creating a list of odd numbers from 1 to 9
+
+odd_numbers = list(range(1, 10, 2))
+
+print(f"List of odd numbers: {odd_numbers}")
+ 
+Updating the Elements of a List
+
+my_list = ['apple', 'banana', 'cherry']
+
+print(f"Original list: {my_list}")
+ 
+# Updating a single element
+
+my_list[1] = 'grape'
+
+print(f"List after updating 'banana' to 'grape': {my_list}")
+ 
+# Updating a slice of the list
+
+my_list[0:2] = ['orange', 'kiwi']
+
+print(f"List after updating a slice: {my_list}")
+ 
+Concatenation of Two Lists
+
+list1 = [1, 2, 3]
+
+list2 = [4, 5, 6]
+ 
+concatenated_list = list1 + list2
+
+print(f"Concatenated list: {concatenated_list}")
+ 
+Repetition of Lists
+
+repeated_list = ['a', 'b'] * 3
+
+print(f"Repeated list: {repeated_list}")
+ 
+Membership in Lists
+
+fruits = ['apple', 'banana', 'cherry']
+ 
+# Check if 'apple' is in the list
+
+is_apple_present = 'apple' in fruits
+
+print(f"Is 'apple' in the list? {is_apple_present}")
+ 
+# Check if 'grape' is not in the list
+
+is_grape_absent = 'grape' not in fruits
+
+print(f"Is 'grape' not in the list? {is_grape_absent}")
+ 
+Aliasing and Cloning Lists
+
+list_a = [1, 2, 3]
+ 
+# Aliasing (both variables point to the same list object)
+
+list_b = list_a
+
+list_b[0] = 99
+
+print(f"Original list_a after aliasing: {list_a}")
+
+print(f"Alias list_b: {list_b}")
+ 
+# Cloning (creating a new list object with the same elements)
+
+list_c = list_a[:]  # or list_c = list_a.copy()
+
+list_c[0] = 100
+
+print(f"\nOriginal list_a after cloning: {list_a}")
+
+print(f"Cloned list_c: {list_c}")
+ 
+Methods to Process Lists
+
+my_list = [10, 20, 30]
+ 
+# append() - adds an element to the end
+
+my_list.append(40)
+
+print(f"After append(40): {my_list}")
+ 
+# insert() - adds an element at a specific index
+
+my_list.insert(1, 15)
+
+print(f"After insert(1, 15): {my_list}")
+ 
+# pop() - removes and returns an element at a specific index
+
+popped_element = my_list.pop(2)
+
+print(f"Popped element at index 2: {popped_element}, List is now: {my_list}")
+ 
+# remove() - removes the first occurrence of a value
+
+my_list.remove(40)
+
+print(f"After remove(40): {my_list}")
+ 
+# reverse() - reverses the list in-place
+
+my_list.reverse()
+
+print(f"After reverse(): {my_list}")
+ 
+Finding Biggest and Smallest Elements in a List
+
+numbers = [4, 2, 8, 1, 5]
+ 
+biggest = max(numbers)
+
+smallest = min(numbers)
+ 
+print(f"The biggest element is: {biggest}")
+
+print(f"The smallest element is: {smallest}")
+ 
+Sorting the List Elements
+
+numbers = [5, 2, 8, 1, 9]
+ 
+# sort() - sorts the list in-place
+
+numbers.sort()
+
+print(f"Sorted list using sort(): {numbers}")
+ 
+# sorted() - returns a new sorted list
+
+original_list = [5, 2, 8, 1, 9]
+
+new_sorted_list = sorted(original_list)
+
+print(f"Original list: {original_list}")
+
+print(f"New sorted list using sorted(): {new_sorted_list}")
+ 
+Number of Occurrences of an Element in the List
+
+my_list = [1, 2, 3, 2, 4, 2]
+ 
+count_of_2 = my_list.count(2)
+
+print(f"The number of occurrences of 2 is: {count_of_2}")
+ 
+Exercise : Finding Common Elements in Two Lists
+
+list1 = [1, 2, 3, 4]
+
+list2 = [3, 4, 5, 6]
+ 
+# Using sets for efficiency
+
+set1 = set(list1)
+
+set2 = set(list2)
+
+common_elements_set = list(set1.intersection(set2))
+
+print(f"Common elements using sets: {common_elements_set}")
+ 
+Storing Different Types of Data in a List #Until we discuss about lambdas/functions we can keep it parked
+
+mixed_list = ['hello', 123, 3.14, True, [1, 2]]
+
+print(f"List with different data types: {mixed_list}")
+ 
+Nested Lists
+
+nested_list = [1, 2, ['a', 'b', 'c'], 4, 5]
+
+print(f"Nested list: {nested_list}")
+
+print(f"Accessing an element in the nested list: {nested_list[2][1]}") # Output: 'b'
+ 
+Nested Lists as Matrices
+
+matrix = [
+
+    [1, 2, 3],
+
+    [4, 5, 6],
+
+    [7, 8, 9]
+
+]
+ 
+print("Matrix:")
+
+for row in matrix:
+
+    print(row)
+ 
+Assignment - Everyone - Just write a program to find if the matrix is an identity matrix..
+ 

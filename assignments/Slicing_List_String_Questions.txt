@@ -1,0 +1,36 @@
+Hard List Slicing Questions
+
+Given nums = [1,2,3,4,5,6,7,8,9,10], extract elements from index 8 to 2 in reverse order.
+Slice the list to get every second element starting from index 7 going backward.
+From nums, get the last 5 elements but skip every second element.
+Reverse only the first half of the list using slicing.
+Reverse only the second half of the list using slicing.
+Extract elements from index 2 to index 8 with a step of 3.
+Get all elements except the first and last two using slicing.
+Slice the list so that you get elements at positions that are multiples of 3.
+From nums, create a new list that contains elements in reverse order but only odd numbers.
+Slice the list to get elements from index -8 to -3.
+Extract elements from index 1 to index -2 with a step of 2.
+Reverse the list and then take every third element using slicing only.
+Get the middle three elements of the list using slicing.
+Slice the list so that you get the first element, then skip two, then next, and so on (pattern slicing).
+From a nested list nested = [[1,2,3],[4,5,6],[7,8,9]], extract [2,3] and [5,6] using slicing.
+
+
+✅ Hard String Slicing Questions
+
+Given text = "abcdefghijklmnopqrstuvwxyz", extract every 4th character starting from index 2.
+Reverse the string but exclude the first and last character.
+Extract characters from index 20 to index 5 in reverse order.
+Get every second character from the last 10 characters of the string.
+Slice the string so that you get characters in reverse order but only vowels.
+From text, extract the substring "hijklm" using slicing only.
+Reverse the first half of the string and keep the second half as is using slicing.
+Extract characters from index -15 to -5 with a step of 2.
+Slice the string so that you get the first character, then skip three, then next, and so on.
+From text, create a new string that contains every third character in reverse order.
+Extract the last 10 characters but skip every second character.
+Slice the string so that you get only the middle five characters.
+Reverse the string and then take every fifth character using slicing only.
+From text, extract characters from index 5 to index 20 but in reverse order and skip every second character.
+Combine slicing and concatenation to create a new string that consists of the first 5 characters and the last 5 characters in reverse order.

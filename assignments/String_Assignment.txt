@@ -1,0 +1,52 @@
+Exercises -
+**Task:**
+Write a function that takes a string and returns it reversed.
+ 
+**Example:**
+Input: `"hello"` → Output: `"olleh"`
+ 
+Solution:
+Input="hello"
+output=input[::-1];
+print(output)
+ 
+**Task:**
+Count how many vowels (`a, e, i, o, u`) appear in a given string, case-insensitive.
+ 
+**Example:**
+Input: `"Vikash"` → Output: `2`
+Solution:
+count=0
+input="Vikash";
+for l in input:
+	if l in 'aeiou':
+		count+=1
+print(count)
+---
+ 
+**Task:**
+Given a string, find the character that appears the most times (excluding spaces).
+ 
+**Example:**
+Input: `"hello world"` → Output: `"l"`
+input="hello world"
+max=input.count(input[0])
+maxC=''
+for i in range(1,len(input)-1):
+	if max<input.count(input[i]) and input[i]!=' ':
+		max=input.count(input[i])
+		maxC=input[i]
+print(maxC)
+---
+ 
+**Task:**
+Write a program to remove all duplicate characters while preserving their original order.
+ 
+**Example:**
+Input: `"banana"` → Output: `"ban"`
+input="banana"
+output=""
+for ch in input:
+	if ch not in output:
+	    output+=ch
+print(output)

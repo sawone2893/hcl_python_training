@@ -1,0 +1,67 @@
+### Exercise 2: Custom Tag Wrapper
+Write a function `make_tag_wrapper(tag)`. It should return a function that takes a string of `text` and returns it wrapped in brackets like `[tag] text`.
+* **Goal:** Create a wrapper for `INFO` and `WARNING` tags.
+Solution:---------------------------------------------------------------
+def make_tag_wrapper(tag):
+    def tag_wrapper(text):
+        value = f"[{tag}] {text}"
+        return value
+    return tag_wrapper
+
+tag_Info=make_tag_wrapper("INFO")
+tag_warning=make_tag_wrapper("WARNING")
+print(tag_Info("Message"))
+print(tag_warning("Error"))
+------------------------------------------------------------------------
+### Exercise 3: Currency Converter
+ Write a function `make_converter(rate)`. The inner function should take an `amount` and return that amount multiplied by the `rate`.
+ * **Goal:** Create a converter for USD to INR (e.g., use a rate of 83) and test it with different amounts. Create for four currencies - GBP, AUD, CAD, USD
+Solution:---------------------------------------------------------------
+def make_converter(rate):
+	def converter(amount):
+		return rate* amount
+	return converter
+	
+convert_usd_inr=make_converter(83)
+convert_gbp_inr=make_converter(120.59);
+convert_aud_inr=make_converter(59.58);
+convert_cad_inr=make_converter(65.17);
+
+print(f"USD to INR: {convert_usd_inr(100)}")
+print(f"GBP to INR: {convert_gbp_inr(25)}")
+print(f"AUD to INR: {convert_aud_inr(30)}")
+print(f"CAD to INR: {convert_cad_inr(20)}")
+------------------------------------------------------------------------
+### Exercise 4: Greeting Generator 
+Write a function `make_greeting(word)`. The inner function should take a `name` and return a string like `"word, name!"`.
+ * **Goal:** Use it to create a `say_hello` function and a `say_goodbye` function.
+Solution:---------------------------------------------------------------
+def make_greeting(word):
+	def take_name(name):
+		value=f"{word}, {name}!"
+		return value
+	return take_name
+
+say_hello=make_greeting("Hello")
+say_goodbye=make_greeting("Goodbye")
+
+print(say_hello("Rohit"))
+print(say_goodbye("Raj"))
+------------------------------------------------------------------------
+### Exercise 5: Simple Incrementer (Using `nonlocal`)
+ Write a function `make_step_counter(step)`. It should keep track of a `total` starting at 0. Every time the inner function is called, it should add the `step` value to the `total` and return the new sum.
+* **Hint:** You will need the `nonlocal` keyword to modify the `total` variable defined in the outer function.
+Solution:---------------------------------------------------------------
+def make_step_counter(step):
+    total=0
+    def totalSum():
+        nonlocal total
+        total+=step
+        return total
+    return totalSum
+
+countStep=make_step_counter(5);
+print(countStep())
+print(countStep())
+print(countStep())
+------------------------------------------------------------------------

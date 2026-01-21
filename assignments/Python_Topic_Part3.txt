@@ -1,0 +1,203 @@
+# Repeating the Strings
+# You can use the multiplication operator (`*`) to repeat a string.
+s = "Python"
+print(s * 3) # Output: PythonPythonPython
+ 
+# ---
+ 
+# Concatenation of Strings
+# The addition operator (`+`) joins two or more strings together.
+s1 = "Hello"
+s2 = "World"
+print(s1 + " " + s2) # Output: Hello World
+ 
+------------------------------------------------------------------------
+s1 = "Abhishek"
+n = 20
+print('The name is:{} and Age is:{}'.format(s1,n))
+ 
+# ---
+ 
+# Checking Membership
+# You can check if a substring exists within a string using the `in` and `not in` keywords.
+s = "Python"
+print("Py" in s)    # Output: True
+print("a" not in s) # Output: True
+ 
+# ---
+ 
+# Comparing Strings
+# Strings are compared character by character based on their ASCII or Unicode values.
+# The comparison is case-sensitive.
+s = "Python"
+s3 = "python"
+print(s == s3) # Output: False (P is not equal to p)
+print(s > s3)  # Output: False (P has a lower ASCII value than p)
+print(s < s3)  # Output: True
+* Could you write your own logic to compare ASCII value and declare if s > s1 ? - Assignment
+ 
+# ---
+ 
+# Removing Spaces from a String
+# String methods like `strip()`, `lstrip()`, and `rstrip()` remove whitespace from the beginning, end, or both ends of a string.
+s_with_spaces = "  Hello Python  "
+print(s_with_spaces.strip())  # Output: Hello Python (removes leading and trailing spaces)
+print(s_with_spaces.lstrip()) # Output: Hello Python   (removes only leading spaces)
+print(s_with_spaces.rstrip()) # Output:   Hello Python (removes only trailing spaces)
+ 
+# ---
+ 
+# Finding Sub Strings
+# The `find()` method returns the lowest index of the substring if found. It returns -1 if not found.
+# `rfind()` works similarly but searches from the right side of the string.
+s = "Python"
+s_long = "Hello World, Hello Python"
+print(s.find("tho")) # Output: 2 (the substring "tho" starts at index 2)
+print(s.rfind("o"))  # Output: 5 (the last 'o' is at index 5)
+ 
+# ---
+ 
+# Counting Substrings in a String
+# The `count()` method returns the number of non-overlapping occurrences of a substring.
+s_long = "Hello World, Hello Python"
+print(s_long.count("Hello")) # Output: 2
+ 
+# ---
+ 
+# Strings are Immutable
+# This line is a comment because strings in Python are immutable, meaning they cannot be changed after creation.
+# `s[0] = 'J'` would raise a `TypeError` because you can't reassign a character within an existing string.
+# s[0] = 'J'
+ 
+# ---
+ 
+# Replacing a String with another String
+# The `replace()` method returns a new string with all occurrences of a substring replaced.
+# You can specify an optional third argument for the number of replacements to make.
+s_long = "Hello World, Hello Python"
+print(s_long.replace("Hello", "Hi"))       # Output: Hi World, Hi Python
+print(s_long.replace("Python", "Java", 1)) # Output: Hello World, Hello Java
+ 
+# ---
+ 
+# Splitting and Joining Strings
+# `split()` divides a string into a list of substrings based on a delimiter.
+# `join()` combines a list of strings into a single string using the string it's called on as a separator.
+s_split = "one,two,three"
+print(s_split.split(','))          # Output: ['one', 'two', 'three']
+print("-".join(["one", "two", "three"])) # Output: one-two-three
+ 
+# ---
+ 
+# Changing Case of a String
+# These methods return a new string with the specified case changes.
+s = "Python"
+print(s.upper())         # Output: PYTHON
+print("PYTHON".lower())  # Output: python
+print("python code".capitalize()) # Output: Python code (capitalizes only the first word)
+print("python code".title())      # Output: Python Code (capitalizes the first letter of each word)
+print("pYtHon".swapcase())        # Output: PyThON (swaps uppercase to lowercase and vice versa)
+ 
+# ---
+ 
+# Checking Starting and Ending of a String
+# `startswith()` and `endswith()` check if a string begins or ends with a specified substring.
+s = "Python"
+print(s.startswith("Py")) # Output: True
+print(s.endswith("on"))   # Output: True
+ 
+# ---
+ 
+# String Testing Methods
+# These methods return a boolean (`True` or `False`) based on whether the string meets a certain criteria.
+print("123".isdigit())        # Output: True (all characters are digits)
+print("abc".isalpha())        # Output: True (all characters are alphabetic)
+print("abc123".isalnum())     # Output: True (all characters are alphanumeric)
+print("   \t ".isspace())     # Output: True (all characters are whitespace)
+print("Hello World".istitle()) # Output: True (each word starts with a capital letter)
+ 
+# ---
+ 
+# Formatting the Strings
+# The `format()` method and f-strings (prefixed with `f`) are used to create formatted strings by embedding variables.
+name = "Bob"
+age = 30
+print("Hello, {}! You are {}.".format(name, age)) # Output: Hello, Bob! You are 30.
+print(f"Hello, {name}! You are {age}.")         # Output: Hello, Bob! You are 30.
+ 
+# ---
+ 
+# Working with Characters
+# `chr()` converts an integer to its corresponding character (based on its ASCII value).
+# `ord()` converts a character to its corresponding integer ASCII value.
+print(chr(65))  # Output: A
+print(ord('A')) # Output: 65
+ 
+# ---
+ 
+# Sorting Strings
+# To sort a list of strings, you can use the `sort()` method on the list.
+l = ['banana', 'apple', 'cherry']
+l.sort() # This sorts the list in place, alphabetically.
+print(l) # Output: ['apple', 'banana', 'cherry']
+- what if you want to sort reverse - assignment
+ 
+# ---
+ 
+# Searching in the Strings
+# `index()` is similar to `find()` but raises a `ValueError` if the substring is not found.
+s = "Python"
+print(s.index("tho")) # Output: 2
+# The commented line below would cause a runtime error because "xyz" is not in the string.
+# s.index("xyz")
+ 
+# ---
+ 
+# Finding Number of Characters and Words
+# `len()` gives the character count. `split()` on a string returns a list of words, so `len()` of that list gives the word count.
+s_count = "This is a sample sentence."
+print(f"Characters: {len(s_count)}") # Output: Characters: 26 (includes spaces and punctuation)
+print(f"Words: {len(s_count.split())}") # Output: Words: 5
+ 
+# ---
+ 
+# Inserting Sub String into a String
+# You can't directly insert into a string because they are immutable.
+# A common way to do this is to use slicing and concatenation to build a new string.
+s_original = "Python is fun"
+s_to_insert = "very "
+# We take the first 10 characters, add the new substring, and then add the rest of the original string.
+s_final = s_original[:10] + s_to_insert + s_original[10:]
+print(s_final) # Output: Python is very fun
+ 
+ 
+Exercises -
+**Task:**
+Write a function that takes a string and returns it reversed.
+ 
+**Example:**
+Input: `"hello"` → Output: `"olleh"`
+ 
+--
+ 
+**Task:**
+Count how many vowels (`a, e, i, o, u`) appear in a given string, case-insensitive.
+ 
+**Example:**
+Input: `"Vikash"` → Output: `2`
+ 
+---
+ 
+**Task:**
+Given a string, find the character that appears the most times (excluding spaces).
+ 
+**Example:**
+Input: `"hello world"` → Output: `"l"`
+ 
+---
+ 
+**Task:**
+Write a program to remove all duplicate characters while preserving their original order.
+ 
+**Example:**
+Input: `"banana"` → Output: `"ban"`
