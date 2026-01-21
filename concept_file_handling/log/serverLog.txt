@@ -1,0 +1,4 @@
+ERROR: Application failed.
+INFO:Calling API.
+INFO:Request initialed.
+CRITICAL:Server failed.

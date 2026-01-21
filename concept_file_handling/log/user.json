@@ -1,0 +1,7 @@
+{
+  "APP_URL":"www.example.com",
+  "USER_NAME":"xyz",
+  "PASSWORD":"89789kjhjkhjh",
+  "DB_URL":"www.db.mysql.com",
+  "ENV":"Prod"
+}
